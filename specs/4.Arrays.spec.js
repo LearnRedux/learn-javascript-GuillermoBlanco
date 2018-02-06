@@ -55,25 +55,25 @@ describe("Arrays", () => {
         array = ["sandor", "margaery", "stannis"];
         array.sort();
 
-        expect(solveme).toEqual(array);
+        expect(["margaery", "sandor", "stannis"]).toEqual(array);
       });
 
       it("sort returns the array itself ordered", () => {
         array = ["sandor", "margaery", "stannis"];
 
-        expect(solveme).toBe(array.sort());
+        expect(array).toBe(array.sort());
       });
 
       it("sort orders strings by default, if no, it internally converts all elements to string", () => {
         array = [1, 5, 10];
 
-        expect(solveme).toEqual(array.sort());
+        expect([1, 10, 5]).toEqual(array.sort());
       });
 
       it("sort accepts a ordering function", () => {
         array = [1, 5, 10];
 
-        expect(solveme).toEqual(array.sort((a, b) => a - b));
+        expect([1, 5, 10]).toEqual(array.sort((a, b) => a - b));
       });
 
     });
@@ -82,11 +82,11 @@ describe("Arrays", () => {
   
       it("reverses the contents of an array", () => {
         array.reverse();
-        expect(solveme).toEqual(array);
+        expect([3,2,1]).toEqual(array);
       });
 
       it("returns the reversed array itself", () => {
-        expect(solveme).toBe(array.reverse());
+        expect(array).toBe(array.reverse());
       });
 
     });
@@ -99,61 +99,60 @@ describe("Arrays", () => {
       it("slice copies an array", () => {
         let copy = array.slice();
         array[2] = "c";
-
-        expect(solveme).toEqual(copy);
+        expect([1,2,3]).toEqual(copy);
       });
 
       it("slice(begin,end) can copy a part of an array", () => {
-        expect(solveme).toEqual(["a", "b", 1, 2, 3, "c"].slice(2, 5));
+        expect([1, 2, 3]).toEqual(["a", "b", 1, 2, 3, "c"].slice(2, 5));
       });
 
       it("slice(position) copies from the position to the end", () => {
-        expect(solveme).toEqual(array.slice(1));
+        expect([2,3]).toEqual(array.slice(1));
       });
 
       it("slice(-position) copies from the last nth position to the end", () => {
-        expect(solveme).toEqual(array.slice(-1));
+        expect([3]).toEqual(array.slice(-1));
       });
     });
 
     describe("concat", () => {
       it("concatenates another array", () => {
-        expect(solveme).toEqual(array.concat([4,5]));
+        expect([1,2,3,4,5]).toEqual(array.concat([4,5]));
       });
 
       it("does not modifies the array", () => {
         array.concat([4,5]);
-        expect(solveme).toEqual(array);
+        expect([1,2,3]).toEqual(array);
       });
     });
 
     describe("iterators", () => {
 
       it("filter selects elements from the array", () => {
-        expect(solveme).toEqual(array.filter(n => n % 2 === 1));
+        expect([1,3]).toEqual(array.filter(n => n % 2 === 1));
       });
 
       it("filter can remove an element from array", () => {
         const newArray = array.filter(n => n === 1);
-        expect(solveme).toEqual(newArray);
+        expect([1]).toEqual(newArray);
       });
 
       it("map applies a function to each element", () => {
-        expect(solveme).toEqual(array.map(n => n * 2));
+        expect([2,4,6]).toEqual(array.map(n => n * 2));
       });
 
       it("reduce(fn, initial) applies an accumulator operation", () => {
-        expect(solveme).toEqual(array.reduce((s, n) => s + n, 0));
+        expect(6).toEqual(array.reduce((s, n) => s + n, 0));
       });
 
       it("every evaluates if a condition is satisfied by all elements", () => {
-        expect(solveme).toBe(array.every(n => n >= 0));
-        expect(solveme).toBe(array.every(n => n % 2 === 0));
+        expect(true).toBe(array.every(n => n >= 0));
+        expect(false).toBe(array.every(n => n % 2 === 0));
       });
 
       it("some evaluates if a condition is satisfied by any elements", () => {
-        expect(solveme).toBe(array.some(n => n % 2 === 0));
-        expect(solveme).toBe(array.some(n => n === -1));
+        expect(true).toBe(array.some(n => n % 2 === 0));
+        expect(false).toBe(array.some(n => n === -1));
       });
 
       it("some can be used to process an array until a condition found", () => {
@@ -162,14 +161,14 @@ describe("Arrays", () => {
           result *= n;
           return n === 2;
         });
-        expect(solveme).toBe(result);
+        expect(2).toBe(result);
       });
 
       it("forEach executes a function for each element", () => {
         let count = 0;
         array.forEach(n => count += 1);
 
-        expect(solveme).toBe(count);
+        expect(3).toBe(count);
       });
 
       it("none modifies the array", () => {
@@ -180,7 +179,7 @@ describe("Arrays", () => {
         array.some(n => n === 2);
         array.forEach(n => n++);
 
-        expect(solveme).toEqual(array);
+        expect([1,2,3]).toEqual(array);
       });
 
     });
