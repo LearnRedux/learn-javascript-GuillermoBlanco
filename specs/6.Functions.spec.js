@@ -1,4 +1,4 @@
-describe("Functions", () => {
+xdescribe("Functions", () => {
 
   describe("shorthand notation", () => {
 

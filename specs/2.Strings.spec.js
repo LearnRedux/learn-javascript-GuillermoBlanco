@@ -1,43 +1,43 @@
 describe("Strings", () => {
 
-  describe("constants", () => {
+  fdescribe("constants", () => {
 
     it("\"hello\", \"a\", \"long word\" are constans", () => {
-      expect(solveme).toBe("hello");
-      expect(solveme).toBe("a");
-      expect(solveme).toBe("long word");
+      expect("hello").toBe("hello");
+      expect("a").toBe("a");
+      expect("long word").toBe("long word");
     });
 
     it("can be written with 'single quotes' instead of double quoetes", () => {
-      expect(solveme).toBe('hello');
-      expect(solveme).toBe('a');
-      expect(solveme).toBe('long word');
+      expect('hello').toBe('hello');
+      expect('a').toBe('a');
+      expect('long word').toBe('long word');
     });
 
     it("can be written with `back-tick` instead of double quotes", () => {
-      expect(solveme).toBe(`hello`);
-      expect(solveme).toBe(`a`);
-      expect(solveme).toBe(`long word`);
+      expect(`hello`).toBe(`hello`);
+      expect(`a`).toBe(`a`);
+      expect(`long word`).toBe(`long word`);
     });
 
     it("strings with `back-tick` are called template literals", () => {
-      expect(solveme).toBe(`hello ${2} you`);
+      expect('hello 2 you').toBe(`hello ${2} you`);
     });
 
     it("template literals can be multiline, adds \\n automatically", () => {
-      expect(solveme).toBe(`hello
+      expect("hello\n" + "world").toBe(`hello
 world`)
     });
 
     it('template literals can use interpolation with ${expression}', () => {
       const saluteTo = "world";
 
-      expect(solveme).toBe(`hello ${saluteTo}`);
-      expect(solveme).toBe(`the answer is ${2 + 2 * 20}`);
+      expect("hello world").toBe(`hello ${saluteTo}`);
+      expect("the answer is 42").toBe(`the answer is ${2 + 2 * 20}`);
     });
 
     it("character is a string with length 1", () => {
-      expect(solveme).toBe("hello"[1])
+      expect("e").toBe("hello"[1])
     });
 
   });

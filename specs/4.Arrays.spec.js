@@ -3,9 +3,9 @@ describe("Arrays", () => {
   describe("constants follows JSON rules", () => {
 
     it("[1,2,3], [42,\"sense\",[\"of\", \"life\"]], []", () => {
-      expect(solveme).toEqual(jasmine.any(Array));
-      expect(solveme).toEqual(jasmine.any(Array));
-      expect(solveme).toEqual(jasmine.any(Array));
+      expect([1,2,3]).toEqual(jasmine.any(Array));
+      expect([42,"sense",["of", "life"]]).toEqual(jasmine.any(Array));
+      expect([]).toEqual(jasmine.any(Array));
     });
 
   });
@@ -16,22 +16,22 @@ describe("Arrays", () => {
   describe("get set", () => {
 
     it("you can use [index] to read any position", () => {
-      expect(solveme).toBe(array[1]);
+      expect(2).toBe(array[1]);
     });
 
     it("you can use [index] to set any position", () => {
       array[1] = 4;
-      expect(solveme).toEqual(array);
+      expect([1,4,3]).toEqual(array);
     });
 
     it("you can mix types", () => {
       array[1] = "missandei";
-      expect(solveme).toEqual(array);
+      expect([1,"missandei",3]).toEqual(array);
     });
 
     it("you get undefined if you read an unset number", () => {
-      expect(solveme).toBe(array[5]);
-      expect(solveme).toBe(array[-1]);
+      expect(undefined).toBe(array[5]);
+      expect(undefined).toBe(array[-1]);
     });
 
   });
@@ -39,14 +39,14 @@ describe("Arrays", () => {
   describe("length", () => {
 
     it("length returns the actual length of the array", () => {
-      expect(solveme).toBe(array.length);
+      expect(3).toBe(array.length);
     });
   });
 
   describe("can mutate", () => {
 
     it("unmutated array", () => {
-      expect(solveme).toEqual(array);
+      expect([1,2,3]).toEqual(array);
     });
 
     describe("sort", () => {

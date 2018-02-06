@@ -1,4 +1,4 @@
-describe("Classes", () => {
+xdescribe("Classes", () => {
 
   describe("definition", () => {
     it("are defined using class keyword", () => {

@@ -1,4 +1,4 @@
-describe('Closures', () => {
+xdescribe('Closures', () => {
 
   it('inner functions can use parent arguments', () => {
     const makeConstant = (number) => {

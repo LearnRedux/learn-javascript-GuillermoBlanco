@@ -1,4 +1,4 @@
-describe("Objects", () => {
+xdescribe("Objects", () => {
 
   describe("JSON", () => {
 
